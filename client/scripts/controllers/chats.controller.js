@@ -14,6 +14,7 @@ function ChatsCtrl ($scope, $reactive, NewChat) {
     }
   });
 
+  ////////////////////////////
 
   function showNewChatModal() {
     NewChat.showModal();
