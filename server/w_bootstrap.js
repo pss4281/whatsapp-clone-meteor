@@ -1,6 +1,5 @@
 Meteor.startup(function () {
-  if (Chats.find().count() !== 0) return;
-
+  if (Meteor.users.find() !== 0) return;
 
   Accounts.createUserWithPhone({
     phone: '+972501234567',

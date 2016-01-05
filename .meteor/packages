@@ -14,8 +14,6 @@ tracker                 # Meteor's client-side reactive programming library
 standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 
-autopublish             # Publish all data to the clients (for prototyping)
-insecure                # Allow all DB writes from clients (for prototyping)
 angular
 driftyco:ionic
 momentjs:moment
@@ -23,3 +21,5 @@ fourseven:scss
 jasonaibrahim:angular-moment
 check
 okland:accounts-phone
+reywood:publish-composite
+okland:camera-ui
