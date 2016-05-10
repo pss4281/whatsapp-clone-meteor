@@ -38,7 +38,12 @@ function config($stateProvider, $urlRouterProvider) {
     .state('login', {
       url: '/login',
       templateUrl: 'client/templates/login.html',
-      controller: 'LoginCtrl'
+      controller: 'AuthenticationCtrl'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'client/templates/register.html',
+      controller: 'AuthenticationCtrl'
     })
     .state('confirmation', {
       url: '/confirmation/:phone',

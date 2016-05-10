@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-content class="login padding">
     <div class="text-center instructions">
-      Enter your email and password to sign in
+      Sign up
     </div>
     <div class="list">
       <label class="item item-input">
@@ -13,14 +13,17 @@
       <label class="item item-input">
         <input ng-model="password" type="password" placeholder="Your password">
       </label>
-      <button ng-click="login()" class="button button-balanced activated button-full">Login</button>
+      <label class="item item-input">
+        <input ng-model="password" type="password" placeholder="Confirm password">
+      </label>
+      <button ng-click="register()" class="button button-balanced activated button-full">Register</button>
 
       <div class="row">
         <div class="col col-33 col-offset-33 text-center">Or</div>
       </div>
       <div class="row">
         <div class="col col-33 col-offset-33 text-center">
-          <a href="/#/register">Register</a>
+          <a href="/#/login">Login</a>
         </div>
       </div>
 
