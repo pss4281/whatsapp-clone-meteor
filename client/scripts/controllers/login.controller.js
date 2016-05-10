@@ -5,39 +5,21 @@ angular
 function LoginCtrl($scope, $reactive, $state, $ionicLoading, $ionicPopup, $log) {
   $reactive(this).attach($scope);
  
-  this.login = login;
+  $scope.login = function() {
+    if (_.isEmpty(this.email) && _.isEmpty(this.password) ) return;
+    user = Meteor.users.find({email: this.email});
+    if(!user) return;
  
-  ////////////
- 
-  function login() {
-    if (_.isEmpty(this.phone)) return;
- 
-    let confirmPopup = $ionicPopup.confirm({
-      title: 'Number confirmation',
-      template: '<div>' + this.phone + '</div><div>Is your phone number above correct?</div>',
-      cssClass: 'text-center',
-      okText: 'Yes',
-      okType: 'button-positive button-clear',
-      cancelText: 'edit',
-      cancelType: 'button-dark button-clear'
-    });
- 
-    confirmPopup.then((res) => {
-      if (!res) return;
- 
-      $ionicLoading.show({
-        template: 'Sending verification code...'
-      });
- 
-      Accounts.requestPhoneVerification(this.phone, (err) => {
-        $ionicLoading.hide();
- 
-        if (err) {
-          return handleError(err);
-        }
- 
-        $state.go('confirmation', {phone: this.phone});
-      });
+    $ionicLoading.show({ template: 'Signing in ...' });
+
+    Meteor.loginWithPassword(user, this.password, (err) => {
+      $ionicLoading.hide();
+
+      if (err) {
+        return handleError(err);
+      }
+
+      $state.go('chats');
     });
   }
  
