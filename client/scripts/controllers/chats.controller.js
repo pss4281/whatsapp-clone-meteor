@@ -5,6 +5,9 @@ angular
 function ChatsCtrl ($scope, $reactive, NewChat) {
   $reactive(this).attach($scope);
 
+  this.subscribe('chats');
+  this.subscribe('users');
+
   this.remove = _remove;
   this.showNewChatModal = showNewChatModal;
 

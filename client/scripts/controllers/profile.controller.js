@@ -1,6 +1,6 @@
 angular
   .module('Whatsapp')
-  .controller('ProfileCtrl', ProfileCtrl);
+  .controller('ProfileCtrl', ["$scope", "$reactive", "$state", "$ionicPopup", "$log", "$ionicLoading", ProfileCtrl]);
  
 function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoading) {
   $reactive(this).attach($scope);
@@ -39,8 +39,6 @@ function ProfileCtrl ($scope, $reactive, $state, $ionicPopup, $log, $ionicLoadin
   }
  
   function handleError (err) {
-    //$log.error('profile save error ', err);
- 
     $ionicPopup.alert({
       title: 'Save failed',
       template: 'Please try again',

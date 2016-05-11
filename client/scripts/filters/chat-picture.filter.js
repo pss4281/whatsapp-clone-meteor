@@ -10,6 +10,6 @@ function chatPicture () {
     let otherUser = Meteor.users.findOne(otherId);
     let hasPicture = otherUser && otherUser.profile && otherUser.profile.picture;
  
-    return hasPicture ? otherUser.profile.picture : chat.picture || '/user-default.svg';
+    return hasPicture ? otherUser.profile.picture : chat.picture || '/user-default.png';
   };
 }
