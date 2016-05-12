@@ -1,6 +1,5 @@
 config = ($locationProvider, $stateProvider, $urlRouterProvider) =>
   $locationProvider.html5Mode(true)
-
   $stateProvider
     .state 'tab',
       url: '/tab',
@@ -54,4 +53,12 @@ config = ($locationProvider, $stateProvider, $urlRouterProvider) =>
  
   $urlRouterProvider.otherwise('tab/chats')
 
-angular.module('Whatsapp').config(config)
+angular
+  .module('Whatsapp')
+  .config(config)
+  .run ($rootScope, $urlRouter, $state)=>
+    $rootScope.$on '$locationChangeSuccess', (e)=>
+      if Meteor.userId() or $state.includes('login') or $state.includes('register')
+        return
+
+      $state.go('login')
