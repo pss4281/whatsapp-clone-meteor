@@ -57,8 +57,9 @@ angular
   .module('Whatsapp')
   .config(config)
   .run ($rootScope, $urlRouter, $state)=>
-    $rootScope.$on '$locationChangeSuccess', (e)=>
-      if Meteor.userId() or $state.includes('login') or $state.includes('register')
+    $rootScope.$on '$locationChangeSuccess', (e, newUrl, oldUrl)=>
+      currentPath = _.last(newUrl.split("/"))
+      if Meteor.userId() or currentPath is "register"
         return
 
       $state.go('login')
