@@ -1,4 +1,6 @@
-config = ($stateProvider, $urlRouterProvider) =>
+config = ($locationProvider, $stateProvider, $urlRouterProvider) =>
+  $locationProvider.html5Mode(true)
+
   $stateProvider
     .state 'tab',
       url: '/tab',
