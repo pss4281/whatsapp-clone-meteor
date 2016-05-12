@@ -26,3 +26,4 @@ standard-minifier-js
 accounts-password
 accounts-base
 coffeescript
+dburles:collection-helpers
